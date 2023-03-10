@@ -14,7 +14,7 @@ const reactionSchema = new Schema (
     },
     userId: {
         type: Schema.Types.ObjectId,
-        required: 'User ID is required',
+        required: 'userId is required',
         ref: 'User'
     },
     createdAt: {
