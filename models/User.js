@@ -1,5 +1,7 @@
+//imports schema and model from mongoose
 const { Schema, model } = require('mongoose');
 
+//creates user schema (parameters of how user data will be organized)
 const userSchema = new Schema(
   {
     username: {
@@ -35,11 +37,11 @@ const userSchema = new Schema(
 id: false,
 }
 );
-
+//sets friend count as a virtual & counts the number of friends a user has
 userSchema.virtual('friendCount').get(function () {
 return this.friends.length;
 });
 
 const User = model('User', userSchema);
-
+//exports user model
 module.exports = User;

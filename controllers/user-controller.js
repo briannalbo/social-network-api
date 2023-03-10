@@ -1,5 +1,7 @@
+//imports user and thought models
 const { User, Thought } = require('../models');
 
+//object of queries for user data
 const userController = {
   // gets all users from db
   getUsers(req, res) {
@@ -24,6 +26,8 @@ createUser(req, res) {
       res.status(500).json(err);
     });
 },
+//gets a single user by their id
+//includes that user's thoughts and friends
 getSingleUser(req, res) {
   User.findOne({ _id: req.params.userId })
     .select('-__v')
@@ -38,6 +42,7 @@ getSingleUser(req, res) {
       res.status(500).json(err)
     )
 },
+//updates an existing user
 updateUser(req, res) {
   User.findOneAndUpdate(
     { _id: req.params.userId }, 
@@ -54,6 +59,9 @@ updateUser(req, res) {
       console.log(err);
     });
 },
+
+//deletes a user by its id
+//deletes that users' thoughts
 deleteUser(req, res) {
   User.findOneAndRemove({ _id: req.params.userId }) 
     .then((user) =>
@@ -67,6 +75,8 @@ deleteUser(req, res) {
       res.status(500).json(err);
     });
 },
+//finds one user by id
+//updates users 'friends' field by adding another user by their id
 addFriend(req, res) {
   console.log('You are adding a friend');
   User.findOneAndUpdate(
@@ -83,6 +93,8 @@ addFriend(req, res) {
     )
     .catch((err) => res.status(500).json(err));
 },
+//finds a user by their id
+//updates user by deleting a friend by their user id
 deleteFriend(req, res) {
   User.findOneAndUpdate(
     { _id: req.params.userId },
@@ -100,5 +112,5 @@ deleteFriend(req, res) {
     .catch((err) => res.status(500).json(err));
 }
 };
-
+//exports user queries object to be used in 'routes' folder
 module.exports = userController;

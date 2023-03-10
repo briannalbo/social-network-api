@@ -1,5 +1,6 @@
+//date formatting helper
 function dateFormat(date) {
     return date.toLocaleDateString();
   }
-  
-  module.exports = dateFormat;
+  //exports date formatting helper to call when needed
+module.exports = dateFormat;

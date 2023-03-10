@@ -1,7 +1,11 @@
+//imports schema and model from mongoose
 const { Schema, model } = require('mongoose');
+//imports the reaction schema to be used within the thought schema
 const reactionSchema = require('./Reaction');
+//imports date formatting helper
 const dateFormat = require('../utils/dateFormat');
 
+//creates thought schema (parameters of how thought data will be organized)
 const thoughtSchema = new Schema(
   {
     thoughtText: {
@@ -33,5 +37,5 @@ const thoughtSchema = new Schema(
   });
   
   const Thought = model('Thought', thoughtSchema);
-  
+  //exports thought model
   module.exports = Thought;

@@ -1,6 +1,9 @@
+//imports mongoose 
 const { Schema, Types } = require('mongoose');
+//imports date formatting helper
 const dateFormat = require('../utils/dateFormat');
 
+//creates schema of parameters for a 'reaction'
 const reactionSchema = new Schema (
     {
      reactionId: {
@@ -29,5 +32,5 @@ const reactionSchema = new Schema (
     }
 }
 );
-
+//exports reaction schema
 module.exports = reactionSchema;
