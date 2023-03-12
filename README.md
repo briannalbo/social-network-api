@@ -22,6 +22,8 @@
 
   ## Usage
   This project can be used to perform CRUD operations through insomnia. After cloning the repository and installing all dependencies, navigate to the 'index.js' file's path in the terminal. Run 'node index.js'. This command will invoke the application to begin listening at the port and connect to a mongoDB database.  
+  - Walkthrough Video: https://drive.google.com/file/d/1si4wVqW4bv6sE05m-k5Tov3CI9uyE6PZ/view
+  
 
  ## <p align="center">Example of Get Request to Retrieve all User Data<p align="center">
   ![](https://github.com/briannalbo/social-network-api/blob/main/images/socialnetex1.png)
